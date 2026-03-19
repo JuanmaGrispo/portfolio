@@ -6,11 +6,14 @@ import ContactSection from "@/features/ContactSection/components/ContactSection"
 
 export default function Home() {
   return (
-    <main>
-      <HeroSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <ContactSection />
-    </main>
+    <div className="">
+      <main className="">
+        <HeroSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
+    </div>
+
   );
 }
