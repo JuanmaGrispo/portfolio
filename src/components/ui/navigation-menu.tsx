@@ -1,10 +1,25 @@
 import * as React from "react"
-import { cva } from "class-variance-authority"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { ArrowDown01Icon } from "@hugeicons/core-free-icons"
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  )
+}
 
 function NavigationMenu({
   className,
@@ -59,9 +74,13 @@ function NavigationMenuItem({
   )
 }
 
-const navigationMenuTriggerStyle = cva(
+const navigationMenuTriggerClassName =
   "group/navigation-menu-trigger inline-flex h-11 w-max items-center justify-center rounded-3xl bg-background px-5 py-3 text-base font-medium transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted data-open:bg-muted/50 data-open:hover:bg-muted data-open:focus:bg-muted"
-)
+
+/** Compat con shadcn: antes era `cva(...)`; ahora devuelve la misma clase. */
+function navigationMenuTriggerStyle() {
+  return navigationMenuTriggerClassName
+}
 
 function NavigationMenuTrigger({
   className,
@@ -71,11 +90,11 @@ function NavigationMenuTrigger({
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={cn(navigationMenuTriggerStyle(), "group", className)}
+      className={cn(navigationMenuTriggerClassName, "group", className)}
       {...props}
     >
       {children}{" "}
-      <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} className="relative top-px ml-1 size-3 transition duration-300 group-data-popup-open/navigation-menu-trigger:rotate-180 group-data-open/navigation-menu-trigger:rotate-180" aria-hidden="true" />
+      <ChevronDownIcon className="relative top-px ml-1 size-3 transition duration-300 group-data-popup-open/navigation-menu-trigger:rotate-180 group-data-open/navigation-menu-trigger:rotate-180" />
     </NavigationMenuPrimitive.Trigger>
   )
 }
