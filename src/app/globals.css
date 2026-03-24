@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../styles/palette.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,75 +46,101 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Tokens de paleta → utilidades Tailwind (bg-bg, text-muted-fg, etc.) */
+  --color-bg: var(--bg);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted-fg: var(--text-muted);
+  --color-soft: var(--text-soft);
+  --color-palette-primary: var(--palette-primary);
+  --color-palette-secondary: var(--palette-secondary);
+  --color-palette-accent: var(--palette-accent);
+  --color-highlight: var(--palette-highlight);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-info: var(--info);
 }
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
+/**
+ * Mapeo shadcn → paleta (usa utilidades existentes: bg-background, text-primary, …).
+ * Misma apariencia en :root y .dark (tema único oscuro).
+ */
+:root,
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--bg-secondary);
+  --card-foreground: var(--text);
+  --popover: var(--bg-secondary);
+  --popover-foreground: var(--text);
+  --primary: var(--palette-primary);
+  --primary-foreground: var(--bg);
+  --secondary: var(--palette-secondary);
+  --secondary-foreground: var(--bg);
+  --muted: var(--bg-tertiary);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--surface);
+  --accent-foreground: var(--text);
+  --destructive: var(--danger);
+  --border: var(--border-subtle);
+  --input: var(--border-subtle);
+  --ring: var(--palette-accent);
+  --chart-1: var(--palette-primary);
+  --chart-2: var(--palette-secondary);
+  --chart-3: var(--palette-accent);
+  --chart-4: var(--palette-highlight);
+  --chart-5: var(--text-muted);
+  --radius: 0.625rem;
+  --sidebar: var(--bg-secondary);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--palette-primary);
+  --sidebar-primary-foreground: var(--bg);
+  --sidebar-accent: var(--surface);
+  --sidebar-accent-foreground: var(--text);
+  --sidebar-border: var(--border-subtle);
+  --sidebar-ring: var(--palette-accent);
+}
+
+/**
+ * Escena base más oscura; el texto recupera luminosidad nominal (1/site-dim).
+ */
+@layer components {
+  .site-base-dim {
+    --site-dim: 0.8;
+    filter: brightness(var(--site-dim));
+  }
+
+  .site-base-dim :where(
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    li,
+    label,
+    button,
+    td,
+    th,
+    small,
+    blockquote,
+    time,
+    summary,
+    input,
+    textarea,
+    select,
+    code,
+    kbd,
+    pre
+  ) {
+    filter: brightness(calc(1 / var(--site-dim)));
+  }
 }
 
 @layer base {
@@ -121,9 +148,192 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* Fondo real: capa fija PageAnimatedBackground; fallback al hacer scroll/bounce */
+    background-color: var(--background);
   }
   html {
     @apply font-sans;
+    /* Anclas (#section): espacio bajo la navbar sticky al hacer scroll */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/**
+ * Linterna solo en la capa de fondo (layout): no usa mix-blend sobre el texto.
+ * Gradiente suave para que el brillo se sienta sin quemar ni ensuciar tipografía.
+ */
+@layer components {
+  .cursor-flashlight-bg {
+    background: radial-gradient(
+      circle var(--flashlight-radius, min(400px, 72vw)) at
+        var(--cursor-x, 50vw) var(--cursor-y, 50vh),
+      rgba(255, 255, 255, 0.028) 0%,
+      rgba(167, 139, 250, 0.055) 24%,
+      rgba(129, 140, 248, 0.028) 50%,
+      transparent 70%
+    );
+  }
+
+  /* Fondo de página fijo: rejilla + líneas (full viewport) */
+  .page-animated-bg-shell {
+    min-height: 100dvh;
+    width: 100%;
+  }
+
+  .page-bg-base {
+    background:
+      radial-gradient(
+        ellipse 140% 100% at 50% -30%,
+        rgba(167, 139, 250, 0.09) 0%,
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse 80% 60% at 100% 80%,
+        rgba(129, 140, 248, 0.06) 0%,
+        transparent 50%
+      ),
+      linear-gradient(165deg, #050506 0%, #09090b 38%, #121215 100%);
+  }
+
+  .page-bg-grid {
+    opacity: 0.42;
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.065) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.065) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+    animation: page-grid-shift 28s linear infinite;
+  }
+
+  .page-bg-diagonals {
+    opacity: 0.32;
+    background: repeating-linear-gradient(
+      -28deg,
+      transparent,
+      transparent 18px,
+      rgba(255, 255, 255, 0.028) 18px,
+      rgba(255, 255, 255, 0.028) 19px
+    );
+    animation: page-diagonal-shift 40s ease-in-out infinite alternate;
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 70%,
+      transparent 100%
+    );
+  }
+
+  .page-bg-shine {
+    background: linear-gradient(
+      112deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.035) 38%,
+      transparent 72%
+    );
+    animation: page-shine-sweep 24s ease-in-out infinite;
+    mix-blend-mode: soft-light;
+  }
+
+  .page-bg-vignette {
+    background: radial-gradient(
+      ellipse 85% 75% at 50% 45%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-bg-grid,
+    .page-bg-diagonals,
+    .page-bg-shine {
+      animation: none;
+    }
+  }
+}
+
+@keyframes page-grid-shift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 56px;
+  }
+}
+
+@keyframes page-diagonal-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-32px, 20px);
+  }
+}
+
+@keyframes page-shine-sweep {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateX(-6%) translateY(1%);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateX(7%) translateY(-2%);
+  }
+}
+
+/** Marquee: franja de stack tecnológico */
+@keyframes tech-strip-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer components {
+  .tech-strip-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: tech-strip-marquee 56s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-strip-marquee-track {
+      animation: none;
+      width: 100% !important;
+      max-width: 72rem;
+      margin-inline: auto;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+    }
+
+    .tech-strip-marquee-track > div:last-child {
+      display: none;
+    }
+
+    .tech-strip-marquee-track > div:first-child {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-right: 0 !important;
+    }
   }
 }

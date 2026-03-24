@@ -1,0 +1,39 @@
+/**
+ * Paleta inspirada en sitios tipo jhey.dev: fondo zinc oscuro, texto claro,
+ * acentos violeta/índigo suaves (sin neón).
+ */
+:root {
+  /* Background */
+  --bg: #09090b;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --surface: #3f3f46;
+
+  /* Text */
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-soft: #52525b;
+
+  /* Brand */
+  --palette-primary: #a78bfa;
+  --palette-secondary: #818cf8;
+
+  /* Accents */
+  --palette-accent: #38bdf8;
+  --palette-highlight: #f472b6;
+
+  /* States */
+  --danger: #f87171;
+  --warning: #fbbf24;
+  --success: #4ade80;
+  --info: #38bdf8;
+
+  /* Linterna (sutil, alineada a la paleta) */
+  --flashlight: rgba(167, 139, 250, 0.08);
+  --flashlight-spot-core: rgba(255, 255, 255, 0.028);
+  --flashlight-spot-tint: rgba(167, 139, 250, 0.055);
+  --flashlight-radius: 520px;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+}
