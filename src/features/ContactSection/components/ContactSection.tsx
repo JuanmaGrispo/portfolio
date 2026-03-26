@@ -68,7 +68,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative flex min-h-[75vh] flex-col justify-center overflow-hidden border-t border-border py-28 md:py-36"
+      className="relative overflow-hidden border-t border-border py-16 md:py-24"
     >
       <div
         className="pointer-events-none absolute inset-0 z-0"
@@ -79,30 +79,30 @@ export default function ContactSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-2xl px-5 sm:px-8 md:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-2xl px-5 md:px-8">
         {/* Eyebrow */}
         <p className="text-center text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-muted-foreground md:text-xs">
           04 — CONTACTO
         </p>
 
         {/* Headline */}
-        <h2 className="mt-4 text-center text-pretty text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">
+        <h2 className="mt-3 text-center text-pretty text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
           ¿Tenés una idea?
         </h2>
 
         {/* Copy */}
-        <p className="mt-5 text-center text-base leading-relaxed text-muted-foreground md:text-lg">
+        <p className="mt-3 text-center text-base leading-relaxed text-muted-foreground">
           Si no sabés por dónde empezar, te ayudo a bajarlo a algo concreto y
           funcional.
         </p>
 
         {/* Trust signals */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           {TRUST_SIGNALS.map((signal) => (
             <span
               key={signal}
               className={cn(
-                "rounded-full border px-3.5 py-1.5 text-xs font-semibold",
+                "rounded-full border px-3 py-1 text-xs font-semibold",
                 "border-primary/35 bg-primary/10 text-primary",
                 "shadow-[0_0_0_1px_rgba(167,139,250,0.08)]",
               )}
@@ -113,7 +113,7 @@ export default function ContactSection() {
         </div>
 
         {/* Form */}
-        <div className="mt-10 rounded-2xl border border-border/70 bg-card/20 p-6 md:p-8">
+        <div className="mt-8 rounded-2xl border border-border/70 bg-card/20 p-4 sm:p-6 md:p-8">
           {formState === "success" ? (
             <div className="flex flex-col items-center gap-3 py-6 text-center">
               <span className="flex size-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary">
@@ -149,44 +149,46 @@ export default function ContactSection() {
               ref={formRef}
               onSubmit={handleSubmit}
               noValidate
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-4"
             >
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="contact-name"
-                  className="text-sm font-medium text-muted-foreground"
-                >
-                  Nombre
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  required
-                  autoComplete="name"
-                  placeholder="Tu nombre"
-                  disabled={isLoading}
-                  className={inputBase}
-                />
-              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="contact-name"
+                    className="text-sm font-medium text-muted-foreground"
+                  >
+                    Nombre
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    autoComplete="name"
+                    placeholder="Tu nombre"
+                    disabled={isLoading}
+                    className={inputBase}
+                  />
+                </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="contact-email"
-                  className="text-sm font-medium text-muted-foreground"
-                >
-                  Email
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="tu@email.com"
-                  disabled={isLoading}
-                  className={inputBase}
-                />
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="contact-email"
+                    className="text-sm font-medium text-muted-foreground"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="tu@email.com"
+                    disabled={isLoading}
+                    className={inputBase}
+                  />
+                </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
@@ -200,7 +202,7 @@ export default function ContactSection() {
                   id="contact-message"
                   name="message"
                   required
-                  rows={5}
+                  rows={4}
                   placeholder="Contame tu idea, proyecto o consulta..."
                   disabled={isLoading}
                   className={cn(inputBase, "resize-none")}
@@ -259,19 +261,22 @@ export default function ContactSection() {
           )}
         </div>
 
-        {/* Fallback email */}
-        <p className="mt-8 text-center text-sm text-muted-foreground/70">
-          También podés escribirme directo a{" "}
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {CONTACT_EMAIL}
-          </a>
-        </p>
+        {/* Fallback email + social links */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+          <p className="text-sm text-muted-foreground/70">
+            O escribime a{" "}
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+
+          <span className="hidden h-3.5 w-px bg-border/60 sm:block" aria-hidden />
 
         {/* Social links */}
-        <div className="mt-6 flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-6">
           {SOCIAL_LINKS.map((link) => (
             <div key={link.label} className="relative">
               <a
@@ -299,6 +304,7 @@ export default function ContactSection() {
               )}
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>
