@@ -1,11 +1,11 @@
-const ITEMS = [
+const ITEMS: { label: string; icon: string; emphasis: boolean }[] = [
   { label: "MVPs desde cero", icon: "🚀", emphasis: false },
   { label: "Apps web completas", icon: "🖥️", emphasis: false },
   { label: "Sistemas internos", icon: "🏢", emphasis: false },
   { label: "Integraciones", icon: "🔗", emphasis: false },
   { label: "Automatización", icon: "⚡", emphasis: false },
   { label: "Mejora de productos existentes", icon: "🛠️", emphasis: true },
-] as const;
+];
 
 export default function WhatIBuildSection() {
   return (
