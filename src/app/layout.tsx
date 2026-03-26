@@ -24,8 +24,8 @@ const heroSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Sitio en construcción.",
+  title: "Juan Manuel Grispo",
+  description: "Desarrollador fullstack freelance. Construyo productos completos desde la idea hasta producción.",
 };
 
 export default function RootLayout({
