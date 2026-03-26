@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Geist_Mono } from "next/font/google";
+import { Figtree, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { PageAnimatedBackground } from "@/components/effects/PageAnimatedBackground";
 import Navbar from "@/components/layout/Navbar";
@@ -14,6 +14,13 @@ const figtree = Figtree({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+/** Serif editorial para el titular del hero: legible, sobria, sensación senior. */
+const heroSerif = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-hero-serif",
 });
 
 export const metadata: Metadata = {
@@ -35,6 +42,7 @@ export default function RootLayout({
         "antialiased",
         figtree.variable,
         geistMono.variable,
+        heroSerif.variable,
         "font-sans",
       )}
     >
@@ -47,9 +55,12 @@ export default function RootLayout({
           <PageAnimatedBackground />
         </div>
         <GsapRegister />
-        {/** Contenido por encima del fondo; scroll solo aquí */}
+        {/**
+         * Navbar fuera de `.site-base-dim`: el `filter` del wrapper crea un containing
+         * block que rompe `position: fixed` del menú móvil (overlay y clicks en touch).
+         */}
+        <Navbar />
         <div className="site-base-dim relative z-10 flex min-h-full min-w-0 flex-1 flex-col">
-          <Navbar />
           {children}
         </div>
       </body>

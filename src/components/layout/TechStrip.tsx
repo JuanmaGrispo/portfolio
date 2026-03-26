@@ -48,7 +48,7 @@ const ARIA_TECH_NAMES = TECH_ITEMS.map((t) => t.name).join(", ");
 
 /** Mismo gap y padding-right para que el loop -50% sea matemáticamente continuo. */
 const ICON_ROW_GAP =
-  "gap-10 pr-10 md:gap-12 md:pr-12 lg:gap-14 lg:pr-14";
+  "gap-7 pr-7 md:gap-10 md:pr-10 lg:gap-14 lg:pr-14";
 
 function TechIconRow({ idSuffix }: { idSuffix: string }) {
   return (
@@ -62,7 +62,7 @@ function TechIconRow({ idSuffix }: { idSuffix: string }) {
           title={name}
         >
           <Icon
-            className="size-14 md:size-16 lg:size-[4.25rem]"
+            className="size-8 md:size-14 lg:size-[4.25rem]"
             aria-hidden
           />
         </span>
@@ -77,7 +77,7 @@ function TechIconRow({ idSuffix }: { idSuffix: string }) {
 export default function TechStrip() {
   return (
     <div
-      className="border-t border-border py-10 md:py-12"
+      className="border-t border-border py-6 opacity-50 md:py-12 md:opacity-100"
       role="region"
       aria-label={`Tecnologías: ${ARIA_TECH_NAMES}`}
     >

@@ -2,6 +2,7 @@ import TechStrip from "@/components/layout/TechStrip";
 import HeroSection from "@/features/HeroSection/components/HeroSection";
 import ExperienceSection from "@/features/ExperienceSection/components/ExperienceSection";
 import ProjectsSection from "@/features/ProjectsSection/components/ProjectsSection";
+import WhatIBuildSection from "@/features/WhatIBuildSection/components/WhatIBuildSection";
 import ContactSection from "@/features/ContactSection/components/ContactSection";
 
 export default function Home() {
@@ -12,9 +13,9 @@ export default function Home() {
         <ExperienceSection />
         <TechStrip />
         <ProjectsSection />
+        <WhatIBuildSection />
         <ContactSection />
       </main>
     </div>
-
   );
 }
