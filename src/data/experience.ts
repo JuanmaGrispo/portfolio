@@ -55,7 +55,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: "secdevs",
     periodLabel: "Sep 2023 — Dic 2024",
     dateTime: "2023-09",
-    title: "Desarrollador backend",
+    title: "Desarrollador de software",
     company: "Secdevs",
     companyUrl: "https://secdevs.com.ar/",
     productName: "Tasky",
@@ -65,17 +65,17 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
       { src: "https://go.tasky.digital/favicon.ico", alt: "Tasky" },
     ],
     summaryLine:
-      "Construcción de sistemas backend sobre productos reales en instituciones.",
+      "Desarrollo de software en una agencia digital: sistemas a medida, apps web y Android nativo.",
     description:
-      "Trabajé en el desarrollo de múltiples soluciones, con foco principal en Tasky, una plataforma de gestión escolar utilizada por instituciones reales.",
+      "Secdevs es una agencia que ayuda a sus clientes a crecer en el mundo digital: diseño web, aplicaciones móviles, sistemas a medida e imagen de marca. Formé parte del área de desarrollo de software, donde mi aporte principal fue en Tasky —un producto propio de la empresa— junto a otros proyectos independientes.",
     bullets: [
-      "Diseñé APIs y modelos de datos para comunicación, asistencia y pagos",
-      "Implementé lógica de negocio sobre flujos reales",
-      "Construí sistemas preparados para crecer con las instituciones",
-      "Apps web interactivas y Android nativo en proyectos independientes",
+      "Participé en el diseño funcional y backend de Tasky, plataforma de gestión académica integral usada por instituciones educativas",
+      "Diseñé APIs, modelos de datos y lógica de negocio para módulos como comunicaciones, calificaciones, asistencia, legajos y más",
+      "Desarrollé webapps a medida para clientes de la agencia",
+      "Construí una aplicación en Android nativo como parte de un proyecto independiente",
     ],
-    stackTags: ["Node.js", "REST", "MongoDB", "Android"],
+    stackTags: ["Node.js", "Express", "MySQL", "ORM", "Android", "REST"],
     impact:
-      "Backend y producto usado día a día por escuelas: datos, comunicaciones y operaciones en un solo ecosistema.",
+      "Producto real en uso día a día por instituciones educativas, con backend diseñado para escalar con ellas.",
   },
 ];
