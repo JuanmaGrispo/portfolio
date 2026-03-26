@@ -1,9 +1,9 @@
 const ITEMS = [
-  { label: "MVPs desde cero", icon: "🚀" },
-  { label: "Apps web completas", icon: "🖥️" },
-  { label: "Sistemas internos", icon: "🏢" },
-  { label: "Integraciones", icon: "🔗" },
-  { label: "Automatización", icon: "⚡" },
+  { label: "MVPs desde cero", icon: "🚀", emphasis: false },
+  { label: "Apps web completas", icon: "🖥️", emphasis: false },
+  { label: "Sistemas internos", icon: "🏢", emphasis: false },
+  { label: "Integraciones", icon: "🔗", emphasis: false },
+  { label: "Automatización", icon: "⚡", emphasis: false },
   { label: "Mejora de productos existentes", icon: "🛠️", emphasis: true },
 ] as const;
 
