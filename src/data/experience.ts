@@ -47,7 +47,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
       "Conexión con servicios externos (CRMs, APIs, wallets)",
       "Deploy y puesta en funcionamiento",
     ],
-    stackTags: ["Next.js", "Node.js", "TypeScript", "MongoDB", "REST"],
+    stackTags: ["Next.js", "Nest.js", "TypeScript", "MongoDB", "REST"],
     impact:
       "Productos funcionando con integraciones reales para clientes internacionales.",
   },
